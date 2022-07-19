@@ -1,0 +1,17 @@
+spring:
+  application:
+    name: dubbo3learn-consumer
+server:
+  port: 8081
+dubbo:
+  # 注册中心地址
+  registry:
+    address: nacos://10.137.12.81:8848
+    password: nacos
+    username: nacos
+    parameters:
+      namespace: dev
+  # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
+  protocol:
+    port: 20880
+    name: dubbo
