@@ -2,14 +2,26 @@ spring:
   application:
     name: dubbo3learn-provider
 server:
-  port: 8080
+  port: 8081
 dubbo:
   # 注册中心地址
   registry:
-    address: nacos://10.137.12.81:8848
+    address: nacos://xxxxxxxxx:8848
     parameters:
       namespace: dev
+    #注册中心作为外部元数据中心
+    use-as-metadata-center: false
+    #注册中心作为配置中心
+    use-as-config-center: false
   # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
   protocol:
-    port: 20880
+    port: -1
     name: dubbo
+  # 可选值
+  # FORCE_INTERFACE，只消费接口级地址，如无地址则报错，单订阅 2.x 地址
+  # APPLICATION_FIRST，智能决策接口级/应用级地址，双订阅
+  # FORCE_APPLICATION，只消费应用级地址，如无地址则报错，单订阅 3.x 地址
+  # dubbo.application.service-discovery.migration=APPLICATION_FIRST
+  application:
+    service-discovery:
+      migration: APPLICATION_FIRST
