@@ -6,7 +6,7 @@ server:
 dubbo:
   # 注册中心地址
   registry:
-    address: nacos://10.137.12.81:8848
+    address: nacos://xxxxxx:8848
     password: nacos
     username: nacos
     parameters:
