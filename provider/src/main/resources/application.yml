@@ -6,9 +6,12 @@ server:
 dubbo:
   # 注册中心地址
   registry:
-    address: nacos://xxxxxxxxx:8848
+    address: nacos://localhost:8848
     parameters:
       namespace: dev
+      username: nacos
+      password: nacos
+    #如果不希望生成配置文件，则设置
     #注册中心作为外部元数据中心
     use-as-metadata-center: false
     #注册中心作为配置中心
@@ -17,11 +20,6 @@ dubbo:
   protocol:
     port: -1
     name: dubbo
-  # 可选值
-  # FORCE_INTERFACE，只消费接口级地址，如无地址则报错，单订阅 2.x 地址
-  # APPLICATION_FIRST，智能决策接口级/应用级地址，双订阅
-  # FORCE_APPLICATION，只消费应用级地址，如无地址则报错，单订阅 3.x 地址
-  # dubbo.application.service-discovery.migration=APPLICATION_FIRST
+  # 可选值 interface、instance、all，默认是 all，即接口级地址、应用级地址都注册
   application:
-    service-discovery:
-      migration: APPLICATION_FIRST
+    register-mode: all

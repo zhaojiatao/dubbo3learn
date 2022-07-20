@@ -1,4 +1,4 @@
-package zjt.learn.dubbo3learn.provider;
+package zjt.learn.dubbo3learn.provider.impl;
 
 import org.apache.dubbo.config.annotation.DubboService;
 import zjt.learn.dubbo3learn.api.TestInterface;
