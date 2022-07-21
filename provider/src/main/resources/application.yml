@@ -13,7 +13,7 @@ dubbo:
       password: nacos
     #如果不希望生成配置文件，则设置
     #注册中心作为外部元数据中心
-    use-as-metadata-center: false
+    use-as-metadata-center: true
     #注册中心作为配置中心
     use-as-config-center: false
   # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
@@ -22,4 +22,9 @@ dubbo:
     name: dubbo
   # 可选值 interface、instance、all，默认是 all，即接口级地址、应用级地址都注册
   application:
-    register-mode: all
+    register-mode: instance
+  consumer:
+    # 服务连接超时时间
+    timeout: 3000
+    # 取消服务启动检查
+    check: false

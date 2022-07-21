@@ -12,7 +12,7 @@ dubbo:
     parameters:
       namespace: dev
     #注册中心作为外部元数据中心
-    use-as-metadata-center: false
+    use-as-metadata-center: true
     #注册中心作为配置中心
     use-as-config-center: false
   # 协议配置，用于配置提供服务的协议信息，协议由提供方指定，消费方被动接受
@@ -26,4 +26,9 @@ dubbo:
   # dubbo.application.service-discovery.migration=APPLICATION_FIRST
   application:
     service-discovery:
-      migration: APPLICATION_FIRST
+      migration: FORCE_APPLICATION
+  consumer:
+    # 服务连接超时时间
+    timeout: 3000
+    # 取消服务启动检查
+    check: false
